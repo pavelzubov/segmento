@@ -1,77 +1,77 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<button style="text-align:center" (click)="openModal()">
-  Modal
-</button>
-
 <header></header>
 <content>
-  <table class="table">
-    <thead>
-    <tr>
-      <th (click)="sort('id')">
-        Id
-        <ng-container *ngIf="sorting['id']===0">
-          <i class="material-icons">
-            unfold_more
-          </i>
-        </ng-container>
-        <ng-container *ngIf="sorting['id']===1">
-          <i class="material-icons">
-            expand_more
-          </i>
-        </ng-container>
-        <ng-container *ngIf="sorting['id']===-1">
-          <i class="material-icons">
-            expand_less
-          </i>
-        </ng-container>
-      </th>
-      <th (click)="sort('resources')">
-        Средства
-        <ng-container *ngIf="sorting['resources']===0">
-          <i class="material-icons">
-            unfold_more
-          </i>
-        </ng-container>
-        <ng-container *ngIf="sorting['resources']===1">
-          <i class="material-icons">
-            expand_more
-          </i>
-        </ng-container>
-        <ng-container *ngIf="sorting['resources']===-1">
-          <i class="material-icons">
-            expand_less
-          </i>
-        </ng-container>
-      </th>
-      <th (click)="sort('comment')">
-        Комментарий
-        <ng-container *ngIf="sorting['comment']===0">
-          <i class="material-icons">
-            unfold_more
-          </i>
-        </ng-container>
-        <ng-container *ngIf="sorting['comment']===1">
-          <i class="material-icons">
-            expand_more
-          </i>
-        </ng-container>
-        <ng-container *ngIf="sorting['comment']===-1">
-          <i class="material-icons">
-            expand_less
-          </i>
-        </ng-container>
-      </th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let item of list">
-      <td (click)="openModal()">{{item.id}}</td>
-      <td>{{item.resources}}</td>
-      <td>{{item.comment}}</td>
-    </tr>
-    </tbody>
-  </table>
+  <div class="table-container">
+    <table class="table">
+      <thead>
+      <tr>
+        <th (click)="sort('id')">
+          Id
+          <ng-container *ngIf="sorting['id']===0">
+            <i class="material-icons">
+              unfold_more
+            </i>
+          </ng-container>
+          <ng-container *ngIf="sorting['id']===1">
+            <i class="material-icons">
+              expand_more
+            </i>
+          </ng-container>
+          <ng-container *ngIf="sorting['id']===-1">
+            <i class="material-icons">
+              expand_less
+            </i>
+          </ng-container>
+        </th>
+        <th (click)="sort('resources')">
+          Средства
+          <ng-container *ngIf="sorting['resources']===0">
+            <i class="material-icons">
+              unfold_more
+            </i>
+          </ng-container>
+          <ng-container *ngIf="sorting['resources']===1">
+            <i class="material-icons">
+              expand_more
+            </i>
+          </ng-container>
+          <ng-container *ngIf="sorting['resources']===-1">
+            <i class="material-icons">
+              expand_less
+            </i>
+          </ng-container>
+        </th>
+        <th (click)="sort('comment')">
+          Комментарий
+          <ng-container *ngIf="sorting['comment']===0">
+            <i class="material-icons">
+              unfold_more
+            </i>
+          </ng-container>
+          <ng-container *ngIf="sorting['comment']===1">
+            <i class="material-icons">
+              expand_more
+            </i>
+          </ng-container>
+          <ng-container *ngIf="sorting['comment']===-1">
+            <i class="material-icons">
+              expand_less
+            </i>
+          </ng-container>
+        </th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let item of list">
+        <td (click)="edit(item)">{{item.id}}</td>
+        <td>{{item.resources}}</td>
+        <td>{{item.comment}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="add-container">
+    <button (click)="add()">Добавить</button>
+  </div>
 
   <!--  <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
 

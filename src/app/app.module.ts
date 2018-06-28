@@ -6,6 +6,7 @@ import {ModalComponent} from './modal/modal.component';
 import {MatDialogModule, MatDialog} from '@angular/material/dialog';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {} from '@angular/material';
+import {ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import {} from '@angular/material';
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
     MatDialogModule
   ],

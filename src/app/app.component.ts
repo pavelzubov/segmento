@@ -30,23 +30,27 @@ export class AppComponent implements OnInit {
   ngOnInit() {
   }
 
-  openModal(): void {
-    this.modalComponent = this.dialog.open(ModalComponent);
-
-    /*    const dialogRef = this.dialog.open(this.modalComponent, {
-          width: '250px',
-          // data: {name: this.name, animal: this.animal}
-        });
-
-        dialogRef.afterClosed().subscribe(result => {
-          console.log(result);
-          // this.animal = result;
-        });*/
+  openModal(item?: Item | number): void {
+    this.modalComponent = this.dialog.open(ModalComponent, {
+      data: item
+    });
+    this.modalComponent.afterClosed().subscribe(result => {
+      console.log(result);
+      const itemId = this.list.findIndex(itm => itm.id === result.id);
+      if (itemId !== null) {
+        this.list[itemId] = result;
+      } else {
+        this.list.push(result);
+      }
+    });
   }
 
   add() {
-    this.list.push({id: 5, resources: 100, comment: 'На тыщу'});
-    console.log(this.list);
+    this.openModal(this.list.length + 1);
+  }
+
+  edit(item: Item) {
+    this.openModal(item);
   }
 
   sort(name: string) {

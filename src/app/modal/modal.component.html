@@ -1,8 +1,18 @@
-<h1 mat-dialog-title></h1>
-<mat-dialog-content>
+<form [formGroup]="modalForm">
+  <h1 mat-dialog-title></h1>
+  <mat-dialog-content>
+    <div class="field">
+      <div class="name">Средства</div>
+      <div class="input"><input type="number" formControlName="resources" name="resources"></div>
+    </div>
+    <div class="field">
+      <div class="name">Комментарий</div>
+      <div class="input"><input type="text" formControlName="comment" name="comment"></div>
+    </div>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-button (click)="submit()">{{new(data)? 'Добавить' : 'Сохранить'}}</button>
+    <button mat-button mat-dialog-close>Отмена</button>
+  </mat-dialog-actions>
+</form>
 
-</mat-dialog-content>
-<mat-dialog-actions>
-  <button mat-button></button>
-  <button mat-button></button>
-</mat-dialog-actions>

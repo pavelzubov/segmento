@@ -1,6 +1,7 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 import {Item} from '../item';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-modal',
@@ -8,16 +9,35 @@ import {Item} from '../item';
   styleUrls: ['./modal.component.sass']
 })
 export class ModalComponent implements OnInit {
+  public modalForm: FormGroup;
 
   constructor(
     private dialogRef: MatDialogRef<ModalComponent>,
-    @Inject(MAT_DIALOG_DATA) private data
-  ) {}
-  /*constructor(public elementRef: MatDialogRef<ModalComponent>,
-              @Inject(MAT_DIALOG_DATA) public data: any) {
-  }*/
-
-  ngOnInit() {
+    @Inject(MAT_DIALOG_DATA) public data: Item | number) {
   }
 
+  ngOnInit() {
+    this.modalForm = new FormGroup({
+      'resources': new FormControl(this.data.resources || '', [Validators.required]),
+      'comment': new FormControl(this.data.comment || '', [Validators.required, Validators.maxLength(512)]),
+    });
+  }
+
+  submit() {
+    const newItem: Item = {
+      id: this.new(this.data) ? this.data : this.data.id,
+      // id: this.data.id || this.data,
+      resources: this.modalForm.controls['resources'].value,
+      comment: this.modalForm.controls['comment'].value,
+    };
+    this.dialogRef.close(newItem);
+  }
+
+  abort() {
+
+  }
+
+  new(val: any) {
+    return typeof val === 'number';
+  }
 }
