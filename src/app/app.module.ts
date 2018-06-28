@@ -3,9 +3,9 @@ import {NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
 import {ModalComponent} from './modal/modal.component';
-import {MatDialogModule, MatDialog, MatDialogRef} from '@angular/material/dialog';
+import {MatDialogModule, MatDialog} from '@angular/material/dialog';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatFormFieldModule} from '@angular/material';
+import {} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -15,7 +15,6 @@ import {MatFormFieldModule} from '@angular/material';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    MatFormFieldModule,
     MatDialogModule
   ],
   providers: [MatDialog],
