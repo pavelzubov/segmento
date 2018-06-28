@@ -1,6 +1,8 @@
 import {Component, ViewChild} from '@angular/core';
 import {MatDialog, MatDialogRef} from '@angular/material/dialog';
 import {ModalComponent} from './modal/modal.component';
+import {Item} from './item';
+
 
 @Component({
   selector: 'app-root',
