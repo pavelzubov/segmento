@@ -10,7 +10,10 @@ import {Item} from './item';
   styleUrls: ['./app.component.sass']
 })
 export class AppComponent implements OnInit {
+  public Arr = Array;
   private modalComponent: MatDialogRef<ModalComponent>;
+  public sizePage = 10;
+  public currentPage: number = 1;
   public sorting = {
     id: 0,
     resources: 0,
@@ -21,13 +24,64 @@ export class AppComponent implements OnInit {
     {id: 2, resources: 250, comment: 'На 15 больше'},
     {id: 3, resources: 200, comment: 'На 35 меньше'},
     {id: 4, resources: 100, comment: 'На сотку'},
-    {id: 5, resources: 100, comment: 'На тыщу'},
+    {id: 5, resources: 1000, comment: 'На тыщу'},
+    {id: 6, resources: 1000, comment: 'Для шестого большой комментарий, чтобы было видно как отображаются большие комментарии в таблице'},
+    {id: 7, resources: 456, comment: 'Такой'},
+    {id: 8, resources: 1, comment: 'Комментарий'},
+    {id: 9, resources: 1, comment: 'Средство'},
+    {id: 1, resources: 235, comment: 'На 235'},
+    {id: 2, resources: 250, comment: 'На 15 больше'},
+    {id: 3, resources: 200, comment: 'На 35 меньше'},
+    {id: 4, resources: 100, comment: 'На сотку'},
+    {id: 5, resources: 1000, comment: 'На тыщу'},
+    {id: 6, resources: 1000, comment: 'Для шестого большой комментарий, чтобы было видно как отображаются большие комментарии в таблице'},
+    {id: 7, resources: 456, comment: 'Такой'},
+    {id: 8, resources: 1, comment: 'Комментарий'},
+    {id: 9, resources: 1, comment: 'Средство'},
+    {id: 1, resources: 235, comment: 'На 235'},
+    {id: 2, resources: 250, comment: 'На 15 больше'},
+    {id: 3, resources: 200, comment: 'На 35 меньше'},
+    {id: 4, resources: 100, comment: 'На сотку'},
+    {id: 5, resources: 1000, comment: 'На тыщу'},
+    {id: 6, resources: 1000, comment: 'Для шестого большой комментарий, чтобы было видно как отображаются большие комментарии в таблице'},
+    {id: 7, resources: 456, comment: 'Такой'},
+    {id: 8, resources: 1, comment: 'Комментарий'},
+    {id: 9, resources: 1, comment: 'Средство'},
+    {id: 1, resources: 235, comment: 'На 235'},
+    {id: 2, resources: 250, comment: 'На 15 больше'},
+    {id: 3, resources: 200, comment: 'На 35 меньше'},
+    {id: 4, resources: 100, comment: 'На сотку'},
+    {id: 5, resources: 1000, comment: 'На тыщу'},
+    {id: 6, resources: 1000, comment: 'Для шестого большой комментарий, чтобы было видно как отображаются большие комментарии в таблице'},
+    {id: 7, resources: 456, comment: 'Такой'},
+    {id: 8, resources: 1, comment: 'Комментарий'},
+    {id: 9, resources: 1, comment: 'Средство'},
+    {id: 1, resources: 235, comment: 'На 235'},
+    {id: 2, resources: 250, comment: 'На 15 больше'},
+    {id: 3, resources: 200, comment: 'На 35 меньше'},
+    {id: 4, resources: 100, comment: 'На сотку'},
+    {id: 5, resources: 1000, comment: 'На тыщу'},
+    {id: 6, resources: 1000, comment: 'Для шестого большой комментарий, чтобы было видно как отображаются большие комментарии в таблице'},
+    {id: 7, resources: 456, comment: 'Такой'},
+    {id: 8, resources: 1, comment: 'Комментарий'},
+    {id: 9, resources: 1, comment: 'Средство'},
+    {id: 1, resources: 235, comment: 'На 235'},
+    {id: 2, resources: 250, comment: 'На 15 больше'},
+    {id: 3, resources: 200, comment: 'На 35 меньше'},
+    {id: 4, resources: 100, comment: 'На сотку'},
+    {id: 5, resources: 1000, comment: 'На тыщу'},
+    {id: 6, resources: 1000, comment: 'Для шестого большой комментарий, чтобы было видно как отображаются большие комментарии в таблице'},
+    {id: 7, resources: 456, comment: 'Такой'},
+    {id: 8, resources: 1, comment: 'Комментарий'},
+    {id: 9, resources: 1, comment: 'Средство'},
   ];
+  public showList: Item[];
 
   constructor(public dialog: MatDialog) {
   }
 
   ngOnInit() {
+    this.showPage();
   }
 
   openModal(item?: Item | number): void {
@@ -36,12 +90,16 @@ export class AppComponent implements OnInit {
     });
     this.modalComponent.afterClosed().subscribe(result => {
       console.log(result);
+      if (!result) {
+        return;
+      }
       const itemId = this.list.findIndex(itm => itm.id === result.id);
-      if (itemId !== null) {
+      if (itemId !== -1) {
         this.list[itemId] = result;
       } else {
         this.list.push(result);
       }
+      this.showPage();
     });
   }
 
@@ -69,9 +127,19 @@ export class AppComponent implements OnInit {
         return -1 * this.sorting[name];
       }
     });
+    this.showPage();
   }
 
   nextSort(value: number): number {
     return ++value > 1 ? -1 : value;
+  }
+
+  showPage(page: number = this.currentPage) {
+    this.currentPage = page;
+    this.showList = this.list.slice(this.sizePage * (page - 1), this.sizePage * page);
+  }
+
+  getCountPages(): any[] {
+    return Array(Math.ceil(this.list.length / this.sizePage)).fill('');
   }
 }
