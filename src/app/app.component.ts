@@ -104,7 +104,7 @@ export class AppComponent implements OnInit {
   }
 
   add() {
-    this.openModal(this.list.length + 1);
+    this.openModal(this.list.sort((a, b) => a.id - b.id)[this.list.length - 1].id + 1);
   }
 
   edit(item: Item) {
