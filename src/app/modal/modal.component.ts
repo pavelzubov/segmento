@@ -13,7 +13,7 @@ export class ModalComponent implements OnInit {
 
   constructor(
     private dialogRef: MatDialogRef<ModalComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: Item | number) {
+    @Inject(MAT_DIALOG_DATA) public data: Item) {
   }
 
   ngOnInit() {
