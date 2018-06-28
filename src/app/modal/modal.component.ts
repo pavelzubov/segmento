@@ -24,8 +24,10 @@ export class ModalComponent implements OnInit {
   }
 
   submit() {
+    const id = +(this.data.id || this.data);
     const newItem: Item = {
-      id: this.new(this.data) ? this.data : this.data.id,
+      id: id,
+      // id: this.new(this.data) ? this.data : this.data.id,
       // id: this.data.id || this.data,
       resources: this.modalForm.controls['resources'].value,
       comment: this.modalForm.controls['comment'].value,
