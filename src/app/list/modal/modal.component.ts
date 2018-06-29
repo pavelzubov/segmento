@@ -18,9 +18,18 @@ export class ModalComponent implements OnInit {
 
   ngOnInit() {
     this.modalForm = new FormGroup({
-      'resources': new FormControl(this.data.resources || '', [Validators.required]),
+      'resources': new FormControl(this.data.resources || '', [Validators.required, this.resourcesValidator]),
       'comment': new FormControl(this.data.comment || '', [Validators.required, Validators.maxLength(512)]),
     });
+  }
+
+  resourcesValidator(control: FormControl) {
+    const value = control.value;
+    if (value > 1000 || value < -1000 || value === 0) {
+      return {resourcesValidator: true};
+    }
+    return null;
+
   }
 
   submit() {
