@@ -1,6 +1,6 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
-import {Item} from '../item';
+import {Item} from '../../item';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
