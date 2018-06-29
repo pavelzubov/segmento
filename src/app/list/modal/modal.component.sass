@@ -1,3 +1,19 @@
+
+$red: #ff2d00
+$border: #c0c1c2
+$buttonDefault: linear-gradient(to bottom, #fff, #edf2f6)
+$buttonActive: linear-gradient(to top, $red, #971d02)
+$buttonActiveBorder: $red
+$buttonActiveGlow: #e42800
+
+@media screen and (max-width: 660px)
+  .modal
+    min-width: auto
+
+@media screen and (min-width: 660px)
+  .modal
+    min-width: 500px
+
 form, button, h1, input, textarea
   font-family: 'Futura Futurus'
 
@@ -7,7 +23,7 @@ div, input, textarea
   box-sizing: border-box
 
 button, input, textarea
-  border: 1px solid black
+  border: 1px solid $border
   border-radius: 0.3rem
 
 button, input
@@ -15,6 +31,29 @@ button, input
 
 button
   padding: 0 3em 0 3rem
+  outline: 0
+  cursor: pointer
+  font-size: 0.9rem
+  background: $buttonDefault
+  border: 1px solid $border
+  border-radius: 0.3rem
+  &.close
+    background: $red
+    color: white
+    box-shadow: 0px 0px 5px $red
+    border: 1px solid $red
+  &:hover
+    color: $red
+    &.close
+      color: white
+      box-shadow: none
+  &:active
+    color: white
+    background: $buttonActive
+    border: 1px solid $buttonActiveBorder
+    box-shadow: inset 0px 0px 5px $red
+  &:disabled
+    color: rgba(0,0,0,0.3)
 
 input::-webkit-outer-spin-button, input::-webkit-inner-spin-button
   -webkit-appearance: none
@@ -25,7 +64,6 @@ div
 
 
 .modal
-  min-width: 400px
   display: flex
   flex-direction: column
   justify-content: stretch

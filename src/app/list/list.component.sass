@@ -2,14 +2,12 @@ $back: #f1f1f1
 $border: #c0c1c2
 $red: #ff2d00
 $summ: #fbfbfb
-$summBorder: $border
 $top: linear-gradient(to bottom, $summ, #f9f9f9)
 $tableHeadLine: #4f4f4f
 $tableBorderBetween: #eef2f5
 $stripRow: #f0f0f0
 $buttonDefault: linear-gradient(to bottom, #fff, #edf2f6)
-$buttonDefaultBorder: $border
-$buttonActive: linear-gradient(to bottom, $red, #971d02)
+$buttonActive: linear-gradient(to top, $red, #971d02)
 $buttonActiveBorder: $red
 $buttonActiveGlow: #e42800
 
@@ -17,7 +15,7 @@ $buttonActiveGlow: #e42800
   font-family: 'Futura Futurus'
   src: url('../../assets/ParaType-FuturaFuturisRegular.otf')
 
-@media screen and (max-width: 500px)
+@media screen and (max-width: 540px)
   .header-container
     flex-direction: column !important
   .buttons
@@ -62,7 +60,7 @@ header
       background-color: $summ
       padding: 1rem
       width: 270px
-      border: 1px solid $summBorder
+      border: 1px solid $border
       border-radius: 0.2rem
     .summ
       font-size: 2.5rem
@@ -76,9 +74,11 @@ header
     font-size: 0.9rem
     margin-top: 3rem
     width: 100%
+    border: 1px solid $border
     border-collapse: collapse
     tr, th
       background-color: white
+      font-weight: normal
     tr:nth-child(odd)
       background-color: $stripRow
     thead
@@ -114,10 +114,21 @@ header
     > div
       margin-top: 1.5rem
     button
+      outline: 0
+      cursor: pointer
       height: 2.7rem
+      font-size: 0.9rem
       font-family: "Futura Futurus"
-      border: 1px solid black
+      background: $buttonDefault
+      border: 1px solid $border
       border-radius: 0.3rem
+    button:hover
+      color: $red
+    button:active
+      color: white
+      background: $buttonActive
+      border: 1px solid $buttonActiveBorder
+      box-shadow: inset 0px 0px 5px $red
     .add-container
       button
         padding: 0 3em 0 3rem
