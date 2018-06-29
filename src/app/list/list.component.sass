@@ -1,4 +1,3 @@
-
 $back: #f1f1f1
 $border: #c0c1c2
 $red: #ff2d00
@@ -46,7 +45,9 @@ div, input, textarea
 
 div, header, content
   outline: 0px solid black
+
 header
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1)
   background-color: $top
   border-bottom: 3px solid $red
   .header-container
@@ -57,6 +58,7 @@ header
     padding: 0.7rem 0 0.7rem 0
     .logo-container
     .summ-container
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1)
       background-color: $summ
       padding: 1rem
       width: 270px
@@ -68,12 +70,13 @@ header
 
 .table-container
   .table
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3)
     background-color: #fff
     font-size: 0.9rem
     margin-top: 3rem
     width: 100%
     border-collapse: collapse
-    tr,th
+    tr, th
       background-color: white
     tr:nth-child(odd)
       background-color: $stripRow
