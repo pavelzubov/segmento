@@ -1,14 +1,16 @@
+
 $back: #f1f1f1
 $border: #c0c1c2
 $red: #ff2d00
-$top: #eaeaea
 $summ: #fbfbfb
 $summBorder: $border
+$top: linear-gradient(to bottom, $summ, #eaeaea)
 $tableHeadLine: #4f4f4f
+$tableBorderBetween: #eef2f5
 $stripRow: #f0f0f0
-$buttonDefault: linear-gradient(to right, #fff, #edf2f6)
+$buttonDefault: linear-gradient(to bottom, #fff, #edf2f6)
 $buttonDefaultBorder: $border
-$buttonActive: linear-gradient(to right, $red, #971d02)
+$buttonActive: linear-gradient(to bottom, $red, #971d02)
 $buttonActiveBorder: $red
 $buttonActiveGlow: #e42800
 
@@ -45,8 +47,8 @@ div, input, textarea
 div, header, content
   outline: 0px solid black
 header
-  background-color: #eaeaea
-  border-bottom: 3px solid black
+  background-color: $top
+  border-bottom: 3px solid $red
   .header-container
     display: flex
     justify-content: space-between
@@ -55,9 +57,10 @@ header
     padding: 0.7rem 0 0.7rem 0
     .logo-container
     .summ-container
+      background-color: $summ
       padding: 1rem
       width: 270px
-      border: 1px solid black
+      border: 1px solid $summBorder
       border-radius: 0.2rem
     .summ
       font-size: 2rem
@@ -65,12 +68,17 @@ header
 
 .table-container
   .table
+    background-color: #fff
     font-size: 0.9rem
     margin-top: 3rem
     width: 100%
     border-collapse: collapse
+    tr,th
+      background-color: white
+    tr:nth-child(odd)
+      background-color: $stripRow
     thead
-      border-bottom: 3px solid black
+      border-bottom: 3px solid $tableHeadLine
     th
       text-align: left
       min-width: 4rem
@@ -81,6 +89,7 @@ header
         display: flex
         align-items: center
         i
+          color: $red
           margin-left: 0.4rem
           font-size: 1rem
     td
@@ -88,7 +97,7 @@ header
       .id
         cursor: pointer
     td, th
-      border-right: 1px solid grey
+      border-right: 1px solid $tableBorderBetween
     td:last-child, th:last-child
       border-right: 0 solid grey
   .buttons
