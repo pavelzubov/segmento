@@ -2,26 +2,105 @@
   font-family: 'Futura Futurus'
   src: url('../../assets/ParaType-FuturaFuturisRegular.otf')
 
+@media screen and (max-width: 500px)
+  .header-container
+    flex-direction: column !important
+  .buttons
+    flex-direction: column !important
+
+@media screen and (max-width: 768px)
+  .container
+    width: 100%
+
+@media screen and (min-width: 768px)
+  .container
+    width: 70%
+
+@media screen and (min-width: 1200px)
+  .container
+    width: 60%
+
 body
   font-family: 'Futura Futurus'
 
-div
+div, input, textarea
   -webkit-box-sizing: border-box
   -moz-box-sizing: border-box
   box-sizing: border-box
-content
-  display: flex
-  justify-content: center
-  padding: 2rem
+
+div, header, content
+  outline: 0px solid black
+header
+  border-bottom: 3px solid black
+  .header-container
+    display: flex
+    justify-content: space-between
+    align-items: center
+    flex-direction: row
+    padding: 0.7rem 0 0.7rem 0
+    .logo-container
+    .summ-container
+      padding: 1rem
+      width: 270px
+      border: 1px solid black
+      border-radius: 0.2rem
+    .summ
+      font-size: 2rem
+      text-align: center
+
+.table-container
   .table
-    width: 70%
+    font-size: 0.9rem
+    margin-top: 3rem
+    width: 100%
     border-collapse: collapse
+    thead
+      border-bottom: 3px solid black
     th
-      cursor: pointer
       text-align: left
+      min-width: 4rem
+      padding: 1.5rem
+      div
+        cursor: pointer
+      .control
+        display: flex
+        align-items: center
+        i
+          margin-left: 0.4rem
+          font-size: 1rem
     td
       padding: 1rem
-    tr
-      border-bottom: 1px solid grey
-    tr:last-child
-      border-bottom: 0 solid grey
+      .id
+        cursor: pointer
+    td, th
+      border-right: 1px solid grey
+    td:last-child, th:last-child
+      border-right: 0 solid grey
+  .buttons
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+    align-items: center
+    > div
+      margin-top: 1.5rem
+    button
+      height: 2.7rem
+      font-family: "Futura Futurus"
+      border: 1px solid black
+      border-radius: 0.3rem
+    .add-container
+      button
+        padding: 0 3em 0 3rem
+    .pagination
+      .page
+        float: left
+        padding: 0.2rem
+        button
+          width: 2.7rem
+
+content, header
+  padding: 0 1rem 0 1rem
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center

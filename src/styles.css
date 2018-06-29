@@ -1,5 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
-body{
+
+body {
   font-family: "Futura Futurus";
 }
+
+body, html {
+  padding: 0;
+  margin: 0;
+}
+
+
+.mat-dialog-container{
+  border-top: 3px solid red !important}

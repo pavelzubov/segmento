@@ -31,51 +31,6 @@ export class ListComponent implements OnInit {
     {id: 7, resources: 456, comment: 'Такой'},
     {id: 8, resources: 1, comment: 'Комментарий'},
     {id: 9, resources: 1, comment: 'Средство'},
-    {id: 1, resources: 235, comment: 'На 235'},
-    {id: 2, resources: 250, comment: 'На 15 больше'},
-    {id: 3, resources: 200, comment: 'На 35 меньше'},
-    {id: 4, resources: 100, comment: 'На сотку'},
-    {id: 5, resources: 1000, comment: 'На тыщу'},
-    {id: 6, resources: 1000, comment: 'Для шестого большой комментарий, чтобы было видно как отображаются большие комментарии в таблице'},
-    {id: 7, resources: 456, comment: 'Такой'},
-    {id: 8, resources: 1, comment: 'Комментарий'},
-    {id: 9, resources: 1, comment: 'Средство'},
-    {id: 1, resources: 235, comment: 'На 235'},
-    {id: 2, resources: 250, comment: 'На 15 больше'},
-    {id: 3, resources: 200, comment: 'На 35 меньше'},
-    {id: 4, resources: 100, comment: 'На сотку'},
-    {id: 5, resources: 1000, comment: 'На тыщу'},
-    {id: 6, resources: 1000, comment: 'Для шестого большой комментарий, чтобы было видно как отображаются большие комментарии в таблице'},
-    {id: 7, resources: 456, comment: 'Такой'},
-    {id: 8, resources: 1, comment: 'Комментарий'},
-    {id: 9, resources: 1, comment: 'Средство'},
-    {id: 1, resources: 235, comment: 'На 235'},
-    {id: 2, resources: 250, comment: 'На 15 больше'},
-    {id: 3, resources: 200, comment: 'На 35 меньше'},
-    {id: 4, resources: 100, comment: 'На сотку'},
-    {id: 5, resources: 1000, comment: 'На тыщу'},
-    {id: 6, resources: 1000, comment: 'Для шестого большой комментарий, чтобы было видно как отображаются большие комментарии в таблице'},
-    {id: 7, resources: 456, comment: 'Такой'},
-    {id: 8, resources: 1, comment: 'Комментарий'},
-    {id: 9, resources: 1, comment: 'Средство'},
-    {id: 1, resources: 235, comment: 'На 235'},
-    {id: 2, resources: 250, comment: 'На 15 больше'},
-    {id: 3, resources: 200, comment: 'На 35 меньше'},
-    {id: 4, resources: 100, comment: 'На сотку'},
-    {id: 5, resources: 1000, comment: 'На тыщу'},
-    {id: 6, resources: 1000, comment: 'Для шестого большой комментарий, чтобы было видно как отображаются большие комментарии в таблице'},
-    {id: 7, resources: 456, comment: 'Такой'},
-    {id: 8, resources: 1, comment: 'Комментарий'},
-    {id: 9, resources: 1, comment: 'Средство'},
-    {id: 1, resources: 235, comment: 'На 235'},
-    {id: 2, resources: 250, comment: 'На 15 больше'},
-    {id: 3, resources: 200, comment: 'На 35 меньше'},
-    {id: 4, resources: 100, comment: 'На сотку'},
-    {id: 5, resources: 1000, comment: 'На тыщу'},
-    {id: 6, resources: 1000, comment: 'Для шестого большой комментарий, чтобы было видно как отображаются большие комментарии в таблице'},
-    {id: 7, resources: 456, comment: 'Такой'},
-    {id: 8, resources: 1, comment: 'Комментарий'},
-    {id: 9, resources: 1, comment: 'Средство'},
   ];
   public showList: Item[];
 
@@ -84,7 +39,7 @@ export class ListComponent implements OnInit {
               public location: Location) {
     const request = this.activateRoute.snapshot.params['sort'] ? this.activateRoute.snapshot.params['sort'].split(':') : null;
     if (request && request.length > 1) {
-      this.sort(request[0], request[1]);
+      this.sort(request[0], +request[1]);
     }
   }
 
@@ -156,5 +111,9 @@ export class ListComponent implements OnInit {
 
   up() {
     this.location.replaceState(String(this.test++));
+  }
+
+  getSumm(): number {
+    return this.list.map(item => item.resources).reduce((a, b) => a + b);
   }
 }

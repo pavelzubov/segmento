@@ -1,80 +1,99 @@
-<header></header>
-<content>
-  <div class="table-container">
-    <table class="table">
-      <thead>
-      <tr>
-        <th (click)="sort('id')">
-          Id
-          <ng-container *ngIf="sorting['id']===0">
-            <i class="material-icons">
-              unfold_more
-            </i>
-          </ng-container>
-          <ng-container *ngIf="sorting['id']===1">
-            <i class="material-icons">
-              expand_more
-            </i>
-          </ng-container>
-          <ng-container *ngIf="sorting['id']===-1">
-            <i class="material-icons">
-              expand_less
-            </i>
-          </ng-container>
-        </th>
-        <th (click)="sort('resources')">
-          Средства
-          <ng-container *ngIf="sorting['resources']===0">
-            <i class="material-icons">
-              unfold_more
-            </i>
-          </ng-container>
-          <ng-container *ngIf="sorting['resources']===1">
-            <i class="material-icons">
-              expand_more
-            </i>
-          </ng-container>
-          <ng-container *ngIf="sorting['resources']===-1">
-            <i class="material-icons">
-              expand_less
-            </i>
-          </ng-container>
-        </th>
-        <th (click)="sort('comment')">
-          Комментарий
-          <ng-container *ngIf="sorting['comment']===0">
-            <i class="material-icons">
-              unfold_more
-            </i>
-          </ng-container>
-          <ng-container *ngIf="sorting['comment']===1">
-            <i class="material-icons">
-              expand_more
-            </i>
-          </ng-container>
-          <ng-container *ngIf="sorting['comment']===-1">
-            <i class="material-icons">
-              expand_less
-            </i>
-          </ng-container>
-        </th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr *ngFor="let item of showList">
-        <td (click)="edit(item)">{{item.id}}</td>
-        <td>{{item.resources}}</td>
-        <td>{{item.comment}}</td>
-      </tr>
-      </tbody>
-    </table>
-  </div>
-  <div class="pagination" *ngIf="list.length>9">
-    <div class="page" *ngFor="let item of getCountPages();index as i">
-      <button (click)="showPage(i+1)" [disabled]="i+1===currentPage">{{i+1}}</button>
+<header>
+  <div class="header-container container">
+    <div class="logo-container">
+      <img src="../../assets/logo.png" alt="">
+    </div>
+    <div class="summ-container">
+      <div class="summ">{{getSumm()}}</div>
     </div>
   </div>
-  <div class="add-container">
-    <button (click)="add()">Добавить</button>
+</header>
+<content>
+  <div class="container table-container">
+    <div class="">
+      <table class="table">
+        <thead>
+        <tr>
+          <th (click)="sort('id')" width="20%">
+            <div class="control">
+              Id
+              <ng-container *ngIf="sorting['id']===0">
+                <i class="material-icons">
+                  unfold_more
+                </i>
+              </ng-container>
+              <ng-container *ngIf="sorting['id']===1">
+                <i class="material-icons">
+                  expand_more
+                </i>
+              </ng-container>
+              <ng-container *ngIf="sorting['id']===-1">
+                <i class="material-icons">
+                  expand_less
+                </i>
+              </ng-container>
+            </div>
+          </th>
+          <th (click)="sort('resources')" width="30%">
+            <div class="control">
+              Средства
+              <ng-container *ngIf="sorting['resources']===0">
+                <i class="material-icons">
+                  unfold_more
+                </i>
+              </ng-container>
+              <ng-container *ngIf="sorting['resources']===1">
+                <i class="material-icons">
+                  expand_more
+                </i>
+              </ng-container>
+              <ng-container *ngIf="sorting['resources']===-1">
+                <i class="material-icons">
+                  expand_less
+                </i>
+              </ng-container>
+            </div>
+          </th>
+          <th (click)="sort('comment')" width="50%">
+            <div class="control">
+              Комментарий
+              <ng-container *ngIf="sorting['comment']===0">
+                <i class="material-icons">
+                  unfold_more
+                </i>
+              </ng-container>
+              <ng-container *ngIf="sorting['comment']===1">
+                <i class="material-icons">
+                  expand_more
+                </i>
+              </ng-container>
+              <ng-container *ngIf="sorting['comment']===-1">
+                <i class="material-icons">
+                  expand_less
+                </i>
+              </ng-container>
+            </div>
+          </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let item of showList">
+          <td (click)="edit(item)" class="id">{{item.id}}</td>
+          <td>{{item.resources}}</td>
+          <td>{{item.comment}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="buttons">
+      <div class="add-container">
+        <button (click)="add()">Добавить</button>
+      </div>
+      <div class="pagination" *ngIf="list.length>10">
+        <div class="page" *ngFor="let item of getCountPages();index as i">
+          <button (click)="showPage(i+1)" [disabled]="i+1===currentPage">{{i+1}}</button>
+        </div>
+      </div>
+    </div>
   </div>
 </content>

@@ -1,0 +1,57 @@
+form, button, h1, input, textarea
+  font-family: 'Futura Futurus'
+
+div, input, textarea
+  -webkit-box-sizing: border-box
+  -moz-box-sizing: border-box
+  box-sizing: border-box
+
+button, input, textarea
+  border: 1px solid black
+  border-radius: 0.3rem
+
+button, input
+  height: 2.7rem
+
+button
+  padding: 0 3em 0 3rem
+
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button
+  -webkit-appearance: none
+  margin: 0
+
+div
+  outline: 0px solid black
+
+
+.modal
+  min-width: 400px
+  display: flex
+  flex-direction: column
+  justify-content: stretch
+  align-items: stretch
+  padding: 0 2rem 0 2rem
+  .title
+    text-align: center
+    h1
+      font-size: 2.4rem
+      margin: 0
+  .content
+    .input
+      textarea
+        margin-top: 1rem
+        padding: 1rem 0 0 1rem
+      input
+        padding-left: 1rem
+      input, textarea
+        width: 100%
+
+  .buttons
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+    align-items: center
+  .content, .actions, .title
+    padding: 1rem
+
+
