@@ -13,6 +13,10 @@ $buttonActiveGlow: #e42800
   .modal
     min-width: 500px
 
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button
+  -webkit-appearance: none
+  margin: 0
+
 form, button, h1, input, textarea, .alert
   font-family: 'Futura Futurus'
 
@@ -56,13 +60,6 @@ button
     box-shadow: inset 0px 0px 5px $red
   &:disabled
     color: rgba(0, 0, 0, 0.3)
-
-input::-webkit-outer-spin-button, input::-webkit-inner-spin-button
-  -webkit-appearance: none
-  margin: 0
-
-div
-  outline: 0px solid black
 
 .modal
   display: flex

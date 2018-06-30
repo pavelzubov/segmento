@@ -1,9 +1,8 @@
-/* You can add global styles to this file, and also import other style files */
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 
 body {
   font-family: "Futura Futurus";
-  background-color:  #f1f1f1;
+  background-color: #f1f1f1;
 }
 
 body, html {
@@ -11,8 +10,7 @@ body, html {
   margin: 0;
 }
 
-
-.mat-dialog-container{
+.mat-dialog-container {
   border-top: 3px solid red;
   overflow: visible !important;
 }

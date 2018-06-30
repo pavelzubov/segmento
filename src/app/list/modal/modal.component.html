@@ -23,7 +23,8 @@
       </div>
       <div class="field">
         <div class="input">
-          <div class="alert alert-textarea" *ngIf="modalForm.controls['comment'].invalid && modalForm.controls['comment'].dirty">
+          <div class="alert alert-textarea"
+               *ngIf="modalForm.controls['comment'].invalid && modalForm.controls['comment'].dirty">
             !
           </div>
           <textarea maxlength="512" rows="5" placeholder="Комментарий" formControlName="comment"

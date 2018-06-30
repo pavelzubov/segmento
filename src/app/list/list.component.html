@@ -3,8 +3,8 @@
     <div class="logo-container">
       <img src="../../assets/logo.png" alt="">
     </div>
-    <div class="summ-container">
-      <div class="summ">{{getSumm()}}</div>
+    <div class="sum-container">
+      <div class="sum">{{getSum()}}</div>
     </div>
   </div>
 </header>
@@ -16,21 +16,23 @@
         <tr>
           <th (click)="sort('id')" width="20%">
             <div class="control">
-              Id
-              <ng-container *ngIf="sorting['id']===0">
-                <i class="material-icons">
-                  unfold_more
-                </i>
-              </ng-container>
-              <ng-container *ngIf="sorting['id']===1">
-                <i class="material-icons">
-                  expand_more
-                </i>
-              </ng-container>
-              <ng-container *ngIf="sorting['id']===-1">
-                <i class="material-icons">
-                  expand_less
-                </i>
+              <span class="text">Id</span>
+              <ng-container class="text">
+                <ng-container *ngIf="sorting['id']===0">
+                  <i class="material-icons">
+                    unfold_more
+                  </i>
+                </ng-container>
+                <ng-container *ngIf="sorting['id']===1">
+                  <i class="material-icons">
+                    expand_more
+                  </i>
+                </ng-container>
+                <ng-container *ngIf="sorting['id']===-1">
+                  <i class="material-icons">
+                    expand_less
+                  </i>
+                </ng-container>
               </ng-container>
             </div>
           </th>

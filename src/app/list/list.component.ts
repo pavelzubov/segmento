@@ -1,9 +1,9 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {MatDialog, MatDialogRef} from '@angular/material/dialog';
 import {ModalComponent} from './modal/modal.component';
 import {Item} from '../item';
-import {Location, LocationStrategy, PathLocationStrategy} from '@angular/common';
-import {ActivatedRoute, Router} from '@angular/router';
+import {Location} from '@angular/common';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-list',
@@ -11,8 +11,6 @@ import {ActivatedRoute, Router} from '@angular/router';
   styleUrls: ['./list.component.sass']
 })
 export class ListComponent implements OnInit {
-  public test = 0;
-  public Arr = Array;
   private modalComponent: MatDialogRef<ModalComponent>;
   public sizePage = 10;
   public currentPage = 1;
@@ -109,11 +107,7 @@ export class ListComponent implements OnInit {
     return Array(Math.ceil(this.list.length / this.sizePage)).fill('');
   }
 
-  up() {
-    this.location.replaceState(String(this.test++));
-  }
-
-  getSumm(): number {
+  getSum(): number {
     return this.list.map(item => item.resources).reduce((a, b) => a + b);
   }
 }

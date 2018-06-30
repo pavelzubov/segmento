@@ -1,8 +1,8 @@
 $back: #f1f1f1
 $border: #c0c1c2
 $red: #ff2d00
-$summ: #fbfbfb
-$top: linear-gradient(to bottom, $summ, #f9f9f9)
+$sum: #fbfbfb
+$top: linear-gradient(to bottom, $sum, #f9f9f9)
 $tableHeadLine: #4f4f4f
 $tableBorderBetween: #eef2f5
 $stripRow: #f0f0f0
@@ -41,9 +41,6 @@ div, input, textarea
   -moz-box-sizing: border-box
   box-sizing: border-box
 
-div, header, content
-  outline: 0px solid black
-
 header
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1)
   background: $top
@@ -54,15 +51,14 @@ header
     align-items: center
     flex-direction: row
     padding: 0.7rem 0 0.7rem 0
-    .logo-container
-    .summ-container
+    .sum-container
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1)
-      background-color: $summ
+      background-color: $sum
       padding: 1rem
       width: 270px
       border: 1px solid $border
       border-radius: 0.2rem
-    .summ
+    .sum
       font-size: 2.5rem
       color: $red
       text-align: center
