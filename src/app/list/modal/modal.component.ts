@@ -34,7 +34,7 @@ export class ModalComponent implements OnInit {
 
   submit() {
     // Берем id.
-    // Он может быть в виде строки (из адреса), поэтому приводим её к числу
+    // Он может быть в виде строки (из адреса), поэтому приводим её  к числу
     const id = this.data.id || +this.data;
     const newItem: Item = {
       id: id,
