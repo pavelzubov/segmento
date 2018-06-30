@@ -35,6 +35,9 @@ Header, Content.
 https://pages.github.com/, или любом другом, с возможностью посмотреть страничку в
 работе
 
+![Макет](https://github.com/pavelzubov/segmento/raw/master/src/assets/frontend_test.jpg)
+
+
 ## Angular
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.3.
