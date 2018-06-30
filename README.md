@@ -1,4 +1,4 @@
-# Тестовое задание в копанию Segmento
+# Тестовое задание в компанию Segmento
 
 ## Ссылка на демонстрацию
 https://segmento.herokuapp.com/
