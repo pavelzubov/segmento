@@ -2,13 +2,11 @@ import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 import {Item} from '../../item';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {ViewEncapsulation} from '@angular/core';
 
 @Component({
   selector: 'app-modal',
   templateUrl: './modal.component.html',
-  styleUrls: ['./modal.component.sass'],
-  encapsulation: ViewEncapsulation.None
+  styleUrls: ['./modal.component.sass']
 })
 export class ModalComponent implements OnInit {
   public modalForm: FormGroup;
