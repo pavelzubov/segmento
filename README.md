@@ -1,27 +1,47 @@
-# Segmento
+# Тестовое задание в копанию Segmento
+
+## Ссылка на демонстрацию
+https://segmento.herokuapp.com/
+
+## Задание
+
+Создать страницу с таблицей расходов-доходов в соответствии с макетом.
+Страница состоит из двух блоков:
+Header, Content.
+В Content н еобходимо реализовать таблицу из 3х колонок.
+1. Id: число уникальное в рамках таблицы, должно присваиваться автоматически для
+новых записей. Чем более поздняя запись - тем больше число. Не редактируется.
+2. Количество средств: отрицательное число - это расход, положительное - доход.
+Поле может принимать значения от -1000 до 1000.00. значение 0 запрещено.
+3. Комментарий: текстовое поле до 512 символов. разрешены буквы, цифры,
+пробелы и знаки препинания.
+
+Необходимо дать возможность добавления и редактирования записей таблицы.
+Формы добавления и редактирования одинаковые. Вызываются при клике на кнопку
+«Добавить» или при клике на id записи.
+
+Чтобы таблица при открытии страницы не была пустой, требуется добавить несколько
+начальных записей.
+В Header н еобходимо добавить блок с итоговым количеством средств.
+Будет плюсом:
+1. Реализованная возможность сортировки по полям "Id" и "Количество средств"
+2. Сохранение состояния сортировки в url. Для возможности обмена ссылкой с
+заданной сортировкой
+3. Добавление pagination если количество записей в таблице превышает 10
+4. Кроссбраузерность и адаптивность
+
+Реализовать с использованием Angular2. Результат с комментариями прислать в виде
+ссылки на github (либо архива) и опубликовать на сайте https://getforge.com/, или
+https://pages.github.com/, или любом другом, с возможностью посмотреть страничку в
+работе
+
+![Макет](https://github.com/pavelzubov/segmento/raw/master/src/assets/frontend_test.jpg)
+
+
+## Angular
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.3.
 
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
