@@ -8,13 +8,29 @@
     <div class="content">
       <div class="field">
         <div class="input">
-          <input type="number" placeholder="Средства" formControlName="resources" name="resources">
+          <div class="alert" *ngIf="modalForm.controls['resources'].invalid && modalForm.controls['resources'].dirty">
+            !
+          </div>
+          <input type="number"
+                 placeholder="Средства"
+                 formControlName="resources"
+                 id="resources"
+                 name="resources">
+        </div>
+        <div class="popover" *ngIf="modalForm.controls['resources'].invalid && modalForm.controls['resources'].dirty">
+          Неверное значение
         </div>
       </div>
       <div class="field">
         <div class="input">
+          <div class="alert alert-textarea" *ngIf="modalForm.controls['comment'].invalid && modalForm.controls['comment'].dirty">
+            !
+          </div>
           <textarea maxlength="512" rows="5" placeholder="Комментарий" formControlName="comment"
                     name="comment"></textarea>
+        </div>
+        <div class="popover" *ngIf="modalForm.controls['comment'].invalid && modalForm.controls['comment'].dirty">
+          Неверное значение
         </div>
       </div>
     </div>
