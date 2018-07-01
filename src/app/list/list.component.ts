@@ -117,6 +117,8 @@ export class ListComponent implements OnInit {
     // Добавляем сортировку в адресную строку если она не нулевая
     if (this.sorting[name]) {
       this.location.replaceState(name + ':' + this.sorting[name]);
+    } else {
+      this.location.replaceState('');
     }
     this.showPage();
   }
