@@ -45,8 +45,18 @@ export class ListComponent implements OnInit {
     // Если есть sort, то разделяем по ":". Левая часть это столбец, правая это значение сортировки
     // После сортируем
     const request = this.activateRoute.snapshot.params['sort'] ? this.activateRoute.snapshot.params['sort'].split(':') : null;
-    if (request && request.length > 1) {
-      this.sort(request[0], +request[1]);
+    if (request && request.length === 2) {
+      // Проверим, валидные ли ключ и значение сортировки
+      // Если такой ключ есть в сортировках и значение -1 или 1, то сортируем
+      // (Округлим, если пользователь вдруг решил ввести не целое (зачем?..))
+      // Если не валидное, то сбрасываем параметр запроса
+      request[1] = Math.round(+request[1]);
+      if (request[0] in this.sorting && (request[1] === -1 || request[1] === 1)) {
+        this.sort(request[0], request[1]);
+        this.location.replaceState(request.join(':'));
+      } else {
+        this.location.replaceState('');
+      }
     }
   }
 
