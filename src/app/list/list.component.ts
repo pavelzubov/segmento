@@ -3,7 +3,7 @@ import {MatDialog, MatDialogRef} from '@angular/material/dialog';
 import {ModalComponent} from './modal/modal.component';
 import {Item} from '../item';
 import {Location} from '@angular/common';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Params} from '@angular/router';
 
 @Component({
   selector: 'app-sort-arrows',
@@ -67,21 +67,18 @@ export class ListComponent implements OnInit {
   constructor(public dialog: MatDialog,
               public activateRoute: ActivatedRoute,
               public location: Location) {
+    const param = Object.entries(this.activateRoute.snapshot.queryParams)[0];
     // Смотрим строку адреса
     // Если есть sort, то разделяем по ":". Левая часть это столбец, правая это значение сортировки
     // После сортируем
-    const request = this.activateRoute.snapshot.params['sort'] ? this.activateRoute.snapshot.params['sort'].split(':') : null;
-    if (request && request.length === 2) {
+    if (param) {
       // Проверим, валидные ли ключ и значение сортировки
       // Если такой ключ есть в сортировках и значение -1 или 1, то сортируем
       // (Округлим, если пользователь вдруг решил ввести не целое (зачем?..))
       // Если не валидное, то сбрасываем параметр запроса
-      request[1] = Math.round(+request[1]);
-      if (request[0] in this.sorting && (request[1] === -1 || request[1] === 1)) {
-        this.sort(request[0], request[1]);
-        this.location.replaceState(request.join(':'));
-      } else {
-        this.location.replaceState('');
+      param[1] = Math.round(+param[1]);
+      if (param[0] in this.sorting && (param[1] === -1 || param[1] === 1)) {
+        this.sort(param[0], param[1]);
       }
     }
   }
@@ -142,7 +139,7 @@ export class ListComponent implements OnInit {
     });
     // Добавляем сортировку в адресную строку если она не нулевая
     if (this.sorting[name]) {
-      this.location.replaceState(name + ':' + this.sorting[name]);
+      this.location.replaceState(`?${name}=${this.sorting[name]}`);
     } else {
       this.location.replaceState('');
     }
