@@ -2,7 +2,7 @@
   <div class="modal">
     <div class="title">
       <h1>
-        {{new(data)? 'Новая запись' : 'Запись #'+data.id}}
+        {{isNew ? 'Новая запись' : 'Запись #'+data.id}}
       </h1>
     </div>
     <div class="content">
@@ -33,7 +33,7 @@
     <div class="actions">
       <div class="buttons">
         <div>
-          <button mat-button (click)="submit()" [disabled]="modalForm.invalid">{{new(data)? 'Добавить' : 'Сохранить'}}
+          <button mat-button (click)="submit()" [disabled]="modalForm.invalid">{{isNew ? 'Добавить' : 'Сохранить'}}
           </button>
         </div>
         <div>

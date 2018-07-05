@@ -36,6 +36,7 @@ export class InvalidPopoverComponent {
 })
 export class ModalComponent implements OnInit {
   public modalForm: FormGroup;
+  public isNew = false;
 
   constructor(
     private dialogRef: MatDialogRef<ModalComponent>,
@@ -43,6 +44,7 @@ export class ModalComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.isNew = this.new(this.data);
     this.modalForm = new FormGroup({
       'resources': new FormControl(this.data.resources || '', [Validators.required, this.resourcesValidator]),
       'comment': new FormControl(this.data.comment || '', [Validators.required, Validators.maxLength(512)]),
