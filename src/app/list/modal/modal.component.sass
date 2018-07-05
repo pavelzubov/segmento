@@ -1,10 +1,4 @@
-$red: #ff2d00
-$border: #c0c1c2
-$buttonDefault: linear-gradient(to bottom, #fff, #edf2f6)
-$buttonActive: linear-gradient(to top, $red, #ca2601)
-$buttonActiveBorder: $red
-$buttonActiveGlow: #e42800
-
+@import '../colors.sass'
 @media screen and (min-width: 800px)
   .popover
     margin-left: 1rem
@@ -119,27 +113,6 @@ button
           padding-left: 1.2rem
         input, textarea
           width: 100%
-      .popover
-        border: 1px solid $red
-        position: absolute
-        float: left
-        background: $red
-        color: white
-        white-space: nowrap
-        &:after
-          right: 100%
-          border: solid transparent
-          content: " "
-          height: 0
-          width: 0
-          position: absolute
-          pointer-events: none
-          border-right-color: $red
-          border-width: 0.5rem
-          margin-top: 1px
-        .message
-          float: left
-          padding: 3rem
     &:last-child
       padding-top: 1rem
   .buttons
@@ -150,4 +123,24 @@ button
   .content, .actions, .title
     padding: 1rem
 
-
+.popover
+  border: 1px solid $red
+  position: absolute
+  float: left
+  background: $red
+  color: white
+  white-space: nowrap
+  &:after
+    right: 100%
+    border: solid transparent
+    content: " "
+    height: 0
+    width: 0
+    position: absolute
+    pointer-events: none
+    border-right-color: $red
+    border-width: 0.5rem
+    margin-top: 1px
+  .message
+    float: left
+    padding: 3rem

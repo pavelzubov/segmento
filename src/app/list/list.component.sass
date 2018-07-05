@@ -1,16 +1,4 @@
-$back: #f1f1f1
-$border: #c0c1c2
-$red: #ff2d00
-$sum: #fbfbfb
-$top: linear-gradient(to bottom, $sum, #f9f9f9)
-$tableHeadLine: #4f4f4f
-$tableBorderBetween: #eef2f5
-$stripRow: #f0f0f0
-$buttonDefault: linear-gradient(to bottom, #fff, #edf2f6)
-$buttonActive: linear-gradient(to top, $red, #ca2601)
-$buttonActiveBorder: $red
-$buttonActiveGlow: #e42800
-
+@import 'colors.sass'
 @font-face
   font-family: 'Futura Futurus'
   src: url('../../assets/ParaType-FuturaFuturisRegular.otf')
@@ -23,7 +11,6 @@ $buttonActiveGlow: #e42800
   .table
     th
       max-width: 2rem
-
 
 @media screen and (max-width: 768px)
   .container
@@ -87,15 +74,10 @@ header
       text-align: left
       min-width: 3rem
       padding: 1.5rem
-      div
-        cursor: pointer
       .control
+        cursor: pointer
         display: flex
         align-items: center
-        i
-          color: $red
-          margin-left: 0.4rem
-          font-size: 1rem
     td
       padding: 1rem 1rem 1rem 1.5rem
       a
@@ -146,3 +128,8 @@ content, header
   flex-direction: column
   justify-content: center
   align-items: center
+
+.arrow
+  color: $red
+  margin-left: 0.4rem
+  font-size: 1rem

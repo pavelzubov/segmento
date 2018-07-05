@@ -2,43 +2,38 @@
   <div class="modal">
     <div class="title">
       <h1>
-        {{new(data)? 'Новая запись' : 'Запись #'+data.id}}
+        {{isNew ? 'Новая запись' : 'Запись #'+data.id}}
       </h1>
     </div>
     <div class="content">
       <div class="field">
         <div class="input">
-          <div class="alert" *ngIf="modalForm.controls['resources'].invalid && modalForm.controls['resources'].dirty">
-            !
-          </div>
+          <app-invalid-alert class="alert"
+                             [invalid]="modalForm.controls['resources'].invalid && modalForm.controls['resources'].dirty"></app-invalid-alert>
           <input type="number"
                  placeholder="Средства"
                  formControlName="resources"
                  id="resources"
                  name="resources">
         </div>
-        <div class="popover" *ngIf="modalForm.controls['resources'].invalid && modalForm.controls['resources'].dirty">
-          Неверное значение
-        </div>
+        <app-invalid-popover
+          [invalid]="modalForm.controls['resources'].invalid && modalForm.controls['resources'].dirty"></app-invalid-popover>
       </div>
       <div class="field">
         <div class="input">
-          <div class="alert alert-textarea"
-               *ngIf="modalForm.controls['comment'].invalid && modalForm.controls['comment'].dirty">
-            !
-          </div>
+          <app-invalid-alert class="alert alert-textarea"
+                             [invalid]="modalForm.controls['comment'].invalid && modalForm.controls['comment'].dirty"></app-invalid-alert>
           <textarea maxlength="512" rows="5" placeholder="Комментарий" formControlName="comment"
                     name="comment"></textarea>
         </div>
-        <div class="popover" *ngIf="modalForm.controls['comment'].invalid && modalForm.controls['comment'].dirty">
-          Неверное значение
-        </div>
+        <app-invalid-popover
+          [invalid]="modalForm.controls['comment'].invalid && modalForm.controls['comment'].dirty"></app-invalid-popover>
       </div>
     </div>
     <div class="actions">
       <div class="buttons">
         <div>
-          <button mat-button (click)="submit()" [disabled]="modalForm.invalid">{{new(data)? 'Добавить' : 'Сохранить'}}
+          <button mat-button (click)="submit()" [disabled]="modalForm.invalid">{{isNew ? 'Добавить' : 'Сохранить'}}
           </button>
         </div>
         <div>

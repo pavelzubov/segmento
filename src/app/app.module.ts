@@ -1,16 +1,14 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {AppComponent} from './app.component';
-import {ModalComponent} from './list/modal/modal.component';
+import {InvalidAlertComponent, InvalidPopoverComponent, ModalComponent} from './list/modal/modal.component';
 import {MatDialogModule, MatDialog} from '@angular/material/dialog';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ReactiveFormsModule} from '@angular/forms';
-import {LocationStrategy, PathLocationStrategy} from '@angular/common';
 import {RouterModule, Routes} from '@angular/router';
-import {ListComponent} from './list/list.component';
+import {ListComponent, SortArrowsComponent} from './list/list.component';
 
 const routes: Routes = [
-  {path: ':sort', component: ListComponent},
   {path: '**', component: ListComponent},
 ];
 
@@ -18,7 +16,10 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     ModalComponent,
-    ListComponent
+    InvalidPopoverComponent,
+    InvalidAlertComponent,
+    ListComponent,
+    SortArrowsComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +28,7 @@ const routes: Routes = [
     BrowserAnimationsModule,
     MatDialogModule
   ],
-  providers: [MatDialog, {provide: LocationStrategy, useClass: PathLocationStrategy}],
+  providers: [MatDialog],
   bootstrap: [AppComponent],
   entryComponents: [ModalComponent]
 })
