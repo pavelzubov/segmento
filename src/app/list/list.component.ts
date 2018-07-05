@@ -1,9 +1,35 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {MatDialog, MatDialogRef} from '@angular/material/dialog';
 import {ModalComponent} from './modal/modal.component';
 import {Item} from '../item';
 import {Location} from '@angular/common';
 import {ActivatedRoute} from '@angular/router';
+
+@Component({
+  selector: 'app-sort-arrows',
+  template: `
+    <ng-container [ngSwitch]="sorting">
+      <ng-container *ngSwitchCase="0">
+        <i class="material-icons arrow">
+          unfold_more
+        </i>
+      </ng-container>
+      <ng-container *ngSwitchCase="1">
+        <i class="material-icons arrow">
+          expand_more
+        </i>
+      </ng-container>
+      <ng-container *ngSwitchCase="-1">
+        <i class="material-icons arrow">
+          expand_less
+        </i>
+      </ng-container>
+    </ng-container>`,
+  styleUrls: ['./list.component.sass']
+})
+export class SortArrowsComponent {
+  @Input() sorting: number;
+}
 
 @Component({
   selector: 'app-list',

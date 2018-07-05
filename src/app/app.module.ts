@@ -7,7 +7,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ReactiveFormsModule} from '@angular/forms';
 import {LocationStrategy, PathLocationStrategy} from '@angular/common';
 import {RouterModule, Routes} from '@angular/router';
-import {ListComponent} from './list/list.component';
+import {ListComponent, SortArrowsComponent} from './list/list.component';
 
 const routes: Routes = [
   {path: ':sort', component: ListComponent},
@@ -18,7 +18,8 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     ModalComponent,
-    ListComponent
+    ListComponent,
+    SortArrowsComponent
   ],
   imports: [
     BrowserModule,

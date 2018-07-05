@@ -17,63 +17,19 @@
           <th (click)="sort('id')" width="20%">
             <div class="control">
               <span class="text">Id</span>
-              <ng-container class="text">
-                <ng-container *ngIf="sorting['id']===0">
-                  <i class="material-icons">
-                    unfold_more
-                  </i>
-                </ng-container>
-                <ng-container *ngIf="sorting['id']===1">
-                  <i class="material-icons">
-                    expand_more
-                  </i>
-                </ng-container>
-                <ng-container *ngIf="sorting['id']===-1">
-                  <i class="material-icons">
-                    expand_less
-                  </i>
-                </ng-container>
-              </ng-container>
+              <app-sort-arrows [sorting]="sorting['id']" class="control"></app-sort-arrows>
             </div>
           </th>
           <th (click)="sort('resources')" width="30%">
             <div class="control">
               Средства
-              <ng-container *ngIf="sorting['resources']===0">
-                <i class="material-icons">
-                  unfold_more
-                </i>
-              </ng-container>
-              <ng-container *ngIf="sorting['resources']===1">
-                <i class="material-icons">
-                  expand_more
-                </i>
-              </ng-container>
-              <ng-container *ngIf="sorting['resources']===-1">
-                <i class="material-icons">
-                  expand_less
-                </i>
-              </ng-container>
+              <app-sort-arrows [sorting]="sorting['resources']" class="control"></app-sort-arrows>
             </div>
           </th>
           <th (click)="sort('comment')" width="50%">
             <div class="control">
               Комментарий
-              <ng-container *ngIf="sorting['comment']===0">
-                <i class="material-icons">
-                  unfold_more
-                </i>
-              </ng-container>
-              <ng-container *ngIf="sorting['comment']===1">
-                <i class="material-icons">
-                  expand_more
-                </i>
-              </ng-container>
-              <ng-container *ngIf="sorting['comment']===-1">
-                <i class="material-icons">
-                  expand_less
-                </i>
-              </ng-container>
+              <app-sort-arrows [sorting]="sorting['comment']" class="control"></app-sort-arrows>
             </div>
           </th>
         </tr>
