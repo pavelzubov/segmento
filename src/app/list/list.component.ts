@@ -89,8 +89,8 @@ export class ListComponent implements OnInit {
 
   add() {
     // Смотрим наибольший индекс в списке
-    // Для это сортируем по id,берем последний и инрементируем
-    this.openModal(this.list.sort((a, b) => a.id - b.id)[this.list.length - 1].id + 1);
+    // Для этого делаем reduce с Math.max и инрементируем
+    this.openModal(this.list.map(item => item.id).reduce((a, b) => Math.max(a, b)) + 1);
   }
 
   edit(item: Item) {
