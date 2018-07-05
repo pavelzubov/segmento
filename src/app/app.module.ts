@@ -1,7 +1,7 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {AppComponent} from './app.component';
-import {ModalComponent} from './list/modal/modal.component';
+import {InvalidAlertComponent, InvalidPopoverComponent, ModalComponent} from './list/modal/modal.component';
 import {MatDialogModule, MatDialog} from '@angular/material/dialog';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ReactiveFormsModule} from '@angular/forms';
@@ -18,6 +18,8 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     ModalComponent,
+    InvalidPopoverComponent,
+    InvalidAlertComponent,
     ListComponent,
     SortArrowsComponent
   ],

@@ -1,7 +1,33 @@
-import {Component, Inject, OnInit} from '@angular/core';
+import {Component, Inject, Input, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 import {Item} from '../../item';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
+
+@Component({
+  selector: 'app-invalid-alert',
+  template: `
+    <div *ngIf="invalid">
+      !
+    </div>
+  `,
+  styleUrls: ['./modal.component.sass']
+})
+export class InvalidAlertComponent {
+  @Input() invalid: boolean;
+}
+
+@Component({
+  selector: 'app-invalid-popover',
+  template: `
+    <div class="popover" *ngIf="invalid">
+      Неверное значение
+    </div>
+  `,
+  styleUrls: ['./modal.component.sass']
+})
+export class InvalidPopoverComponent {
+  @Input() invalid: boolean;
+}
 
 @Component({
   selector: 'app-modal',
